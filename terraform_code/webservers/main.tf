@@ -65,6 +65,9 @@ resource "aws_instance" "ec2_instance" {
   associate_public_ip_address = true
   user_data               = file("install_docker.sh")
   iam_instance_profile    = data.aws_iam_instance_profile.iam_profile.name
+  root_block_device {
+    volume_size = 20
+  }
   tags = {
       "Name" = "ec2 instance"
     }
