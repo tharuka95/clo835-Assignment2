@@ -16,6 +16,8 @@ spec:
       labels:
         app: employees
     spec:
+      imagePullSecrets:
+      - name: ecr-secret
       containers:
       - name: app-employees
         image: 108561850742.dkr.ecr.us-east-1.amazonaws.com/app_images:v1.0
