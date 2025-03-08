@@ -29,7 +29,8 @@ jobs:
         ECR_REPOSITORY: mysql_images
         IMAGE_TAG: v1.0
       run: |
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f images_build/Dockerfile_mysql .
+        cd images_build
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile_mysql .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         
     - name: Build, tag, and push app image to Amazon ECR
@@ -38,5 +39,6 @@ jobs:
         ECR_REPOSITORY: app_images
         IMAGE_TAG: v1.0
       run: |
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f images_build/Dockerfile .
+        cd images_build
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
