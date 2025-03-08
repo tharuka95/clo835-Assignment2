@@ -1,0 +1,15 @@
+kind: Service
+metadata:
+  name: app-service
+  namespace: app
+  labels:
+    app: employees
+    version: v1
+spec:
+  selector:
+    app: employees
+  type: NodePort
+  ports:
+  - port: 8080
+    targetPort: 8080
+    nodePort: 30000
