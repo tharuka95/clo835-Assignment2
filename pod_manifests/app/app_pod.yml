@@ -6,6 +6,8 @@ metadata:
     app: employees
     version: v1
 spec:
+  imagePullSecrets:
+  - name: ecr-secret
   containers:
   - name: app-employees
     image: 108561850742.dkr.ecr.us-east-1.amazonaws.com/app_images:v1.0
@@ -13,7 +15,7 @@ spec:
     - containerPort: 8080
     env: 
     - name: DBHOST
-      value: "mysql-service.mysqldb.svc.cluster.local"
+      value: "mysql-service.mysqlservice.svc.cluster.local"
     - name: DBPORT
       value: "3306"
     - name: DBUSER

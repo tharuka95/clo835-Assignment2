@@ -8,8 +8,6 @@ metadata:
 spec:
   imagePullSecrets:
   - name: ecr-secret
-
-
   containers:
   - name: mysql-container
     image: 108561850742.dkr.ecr.us-east-1.amazonaws.com/mysql_images:v1.0
