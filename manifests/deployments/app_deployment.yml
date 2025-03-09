@@ -5,18 +5,15 @@ metadata:
   namespace: app
   labels:
     app: employees
-    version: v1
 spec:
   replicas: 3
   selector:
     matchLabels:
       app: employees
-      version: v1
   template:
     metadata:
       labels:
         app: employees
-        version: v1
     spec:
       imagePullSecrets:
       - name: ecr-secret
