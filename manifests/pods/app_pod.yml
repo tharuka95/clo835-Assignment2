@@ -5,7 +5,6 @@ metadata:
   namespace: app
   labels:
     app: employees
-    version: v1
 spec:
   imagePullSecrets:
   - name: ecr-secret
